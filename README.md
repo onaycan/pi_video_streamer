@@ -56,9 +56,10 @@ Use python3 for the project. The following modules are used and needs to be inst
 * imutils
 * cv2
 
+Do not forget to create your own certificates.
 
 ### Installation
-
+Instllation of flask, flask_cors and imutils is straightforward. 
 If you face with problems installing opencv via pip3 utilities, try one or another: 
 
 ```shell
@@ -92,32 +93,30 @@ sudo make install
 Simply run a server using python3's http.server on an open port, and navigate into your browser. 
 
 ```shell
-you@yourmachine$ python3 -m http.server 5000
-Serving HTTP on 0.0.0.0 port 5000 (http://0.0.0.0:5000/) ...
-127.0.0.1 - - [03/Aug/2020 01:51:30] "GET / HTTP/1.1" 200 -
+can@canrasp:~/workspace/pi_video_streamer$ sudo python3 video_streamer.py 
+[sudo] password for can: 
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (480) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+ * Serving Flask app "video_streamer" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+Enter PEM pass phrase:
+ * Running on https://10.42.0.1:5500/ (Press CTRL+C to quit)
+
 ..
 .
 ```
 
-![Image 1](./readme_pics/folder_structure.png?raw=true "Folder Structure")
+![Image 1](./readme_pics/stream.png?raw=true "stream")
 
-The first example will show a single camera mode without background image.
-All pages have mouse control options. 
-
-![Image 2](./readme_pics/interior_single_eye.png?raw=true "First example")
-
-The second example will show the same of above with the stereo effect. 
-
-![Image 3](./readme_pics/interior_stereo_eyes.png?raw=true "First example")
-
-The second example will show the same of above with the background [cat image](https://www.enewser.com/science/interesting-facts-about-cats/)
-
-![Image 4](./readme_pics/interior_stereo_eyes_background.png?raw=true "Third example")
+If the routes GET the url's video_socket and generate_frame are called and you will see above or similar. 
+For this example a stereo camera is used, with single lense you will see only one-eye perspective of this. 
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License as the major dependencies like three.js. 
+Distributed under the MIT License as the major dependencies like opencv, imutils and flask. 
 
 <!-- CONTACT -->
 ## Contact
@@ -126,5 +125,5 @@ Oenay Can - onaycan@gmail.com
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [threejs](https://threejs.org/)
-* [Sketchfab](https://sketchfab.com/3d-models/cockpit-model-vr-33acf5be400740aa85d7738871231962)
+* [Adrian Rosebrocks articla on pyimagesearch](https://www.pyimagesearch.com/2019/09/02/opencv-stream-video-to-web-browser-html-page/)
+* [opencv](https://opencv-python-tutroals.readthedocs.io/en/latest/index.html)
